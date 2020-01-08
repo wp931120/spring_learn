@@ -7,8 +7,7 @@ import java.util.Arrays;
  *
  */
 public class App {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
         int[] array0 = {1,312,31,2,3};
         bubsort(array0);
         int[] array1 = {1,123,12,2,3};
@@ -20,6 +19,10 @@ public class App {
         int end = array3.length-1;
         quickSort(array3,start,end);
         System.out.println(Arrays.toString(array3));
+
+
+        int[] array4 = {131,23};
+        System.out.println(Arrays.toString(mergeSort(array4)));
         System.out.println( "Hello World!" );
     }
 
@@ -114,6 +117,32 @@ public class App {
         quickSort(array,start,left-1);
         quickSort(array,right+1,right);
 
+    }
+
+
+
+    public static int[] mergeSort(int[] array){
+        if (array.length<2) return array;
+        int mid = array.length / 2;
+        int[] left = Arrays.copyOfRange(array,0,mid);
+        int[] right = Arrays.copyOfRange(array,mid,array.length);
+        return merge(left,right);
+
+    }
+
+    public static int[] merge(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+        for (int index = 0, i = 0, j = 0; index < result.length; index++) {
+            if (i >= left.length)
+                result[index] = right[j++];
+            else if (j >= right.length)
+                result[index] = left[i++];
+            else if (left[i] > right[j])
+                result[index] = right[j++];
+            else
+                result[index] = left[i++];
+        }
+        return result;
     }
 
 }
