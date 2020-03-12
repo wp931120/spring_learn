@@ -1,0 +1,19 @@
+server :
+  port : 8080
+
+spring:
+  datasource:
+    db1:
+      username : root
+      password : 123
+      jdbc-url : "jdbc:mysql://localhost:3306/db_test"
+      driverClassName: "com.mysql.jdbc.Driver"
+      type: com.alibaba.druid.pool.DruidDataSource
+
+    db2:
+      username: root
+      password: 123
+      jdbc-url: "jdbc:mysql://localhost:3306/kg_demo_movie"
+      driverClassName: "com.mysql.jdbc.Driver"
+      type: com.alibaba.druid.pool.DruidDataSource
+
